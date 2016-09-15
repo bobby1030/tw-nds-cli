@@ -8,7 +8,7 @@ var fetchData = function () {
         .then(function (res) {
             parseHTML(res);
         })
-        .catch(function (err) {
+        .catch(function () {
             console.error('Error when fetching data');
         });
 };
@@ -22,6 +22,8 @@ var parseHTML = function (rawHTMl) {
     var cities = data[0].slice(1);
     var status = data[1].slice(1);
 
+    var result = null;
+
     result = mergeArray(cities, status);
     resultHandler(result);
 };
@@ -30,7 +32,7 @@ var mergeArray = function (column, data) {
     var obj = {};
     for (var i = 0; i < column.length; i++) {
         obj[replaceLocationToISO(column[i])] = data[i].replace('  ', '\n');
-    };
+    }
     return obj;
 };
 
@@ -41,7 +43,7 @@ var resultHandler = function (result) {
         console.error('Please use a City Code that match ISO 3166-2:TW format.');
     } else {
         console.error('Please specify a city with ISO 3166-2:TW format.');
-    };
+    }
 };
 
 fetchData();
