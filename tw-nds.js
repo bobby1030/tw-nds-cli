@@ -39,7 +39,7 @@ var mergeArray = function (column, data) {
 var resultHandler = function (result) {
     var msg = result[process.argv[2]];
     if (msg) {
-        if (msg.indexOf('正常上班上課') < 0 && msg.indexOf('未達停止上班及上課標準') < 0) {
+        if (!msg.match('照常') && !msg.match('未達')) {
             // add a warning color + bold
             msg = '\033[01m\033[31m' + msg + '\033[0m';
         }
