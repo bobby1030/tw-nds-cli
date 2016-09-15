@@ -30,7 +30,7 @@ var parseHTML = function(rawHTMl){
 var mergeArray = function(column, data) {
     var obj = {}
     for(var i=0; i < column.length; i++){
-        obj[replaceLocationToISO(column[i])] = data[i]
+        obj[replaceLocationToISO(column[i])] = data[i].replace('  ','\n')
     }
     return obj
 }
