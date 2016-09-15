@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(pwd -P)
+BASEDIR=$(readlink -f tw-nds)
 exec node $BASEDIR/app.js $1
