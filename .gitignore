@@ -36,5 +36,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# JSTern
+# JSTern & ESLint
 .tern-project
+.eslintrc.json
