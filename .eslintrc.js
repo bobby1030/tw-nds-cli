@@ -145,7 +145,7 @@ module.exports = {
         "no-new-object": "error",
         "no-new-require": "error",
         "no-new-wrappers": "error",
-        "no-octal-escape": "error",
+        "no-octal-escape": "off",
         "no-param-reassign": "error",
         "no-path-concat": "error",
         "no-plusplus": [
