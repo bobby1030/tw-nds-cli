@@ -7,7 +7,6 @@ You'll need NodeJS to run this program.
 ```shell
 git clone https://github.com/bobby1030/tw-nds-cli.git && cd tw-nds-cli
 npm install
-chmod +x tw-nds
 ln -s $PWD/tw-nds /usr/local/bin
 ```
 
