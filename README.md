@@ -1,2 +1,2 @@
-# tw-nds-parser
-A Parser for http://www.dgpa.gov.tw/nds.html
+# tw-nds-cli
+A cli interface for http://www.dgpa.gov.tw/nds.html
