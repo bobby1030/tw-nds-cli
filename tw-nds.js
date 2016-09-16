@@ -23,13 +23,8 @@ var parseHTML = function (rawHTMl) {
 
     var result = null;
 
-    if (!cities[0].match('無停班停課訊息')) {
-        result = mergeArray(cities, status);
-        resultHandler(result);
-    } else {
-        console.log('無停班停課訊息');
-    }
-
+    result = mergeArray(cities, status);
+    resultHandler(result);
 };
 
 var mergeArray = function (column, data) {
