@@ -43,7 +43,7 @@ var mergeArray = function (column, data) {
 var resultHandler = function (result) {
     var msg = result[process.argv[2]];
     if (msg) {
-        if (!msg.match('照常') && !msg.match('未達')) {
+        if (msg.match('已達') || msg.match(/.*停止上班.*、/g) || msg.match(/、.*停止上課.*/g)) {
             // add a warning color + bold
             msg = '\033[01m\033[31m' + msg + '\033[0m';
         }
