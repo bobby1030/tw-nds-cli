@@ -1,16 +1,17 @@
-const rp = require('request-promise');
+const rq = require('request');
 const cheerio = require('cheerio');
 const cheerioTableParser = require('cheerio-tableparser');
 const replaceLocationToISO = require('./replaceLocationToISO');
 
 var fetchData = function () {
-    rp('http://www.dgpa.gov.tw/nds.html')
-        .then(function (res) {
-            parseHTML(res);
-        })
-        .catch(function () {
+    rq('http://www.dgpa.gov.tw/nds.html', function (err, res, body) {
+        if (!err && res.statusCode === 200) {
+            parseHTML(body);
+        } else {
             console.error('Error when fetching data');
-        });
+            console.error(err);
+        }
+    });
 };
 
 var parseHTML = function (rawHTMl) {
