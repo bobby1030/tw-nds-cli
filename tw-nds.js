@@ -19,16 +19,27 @@ var parseHTML = function (rawHTMl) {
     cheerioTableParser($);
 
     var data = $('table[bgcolor="#cdfad9"]').parsetable(false, false, true);
-    var cities = data[1].slice(1);
-    var status = data[2].slice(1);
+
+    var cities = null;
+    var status = null;
+
+    if (data[2]) {
+        // If there is an additional "area" column
+        cities = data[1].slice(1);
+        status = data[2].slice(1);
+    } else {
+        // There is no "area" column
+        cities = data[0].slice(1);
+        status = data[1].slice(1);
+    }
 
     var result = null;
 
-    if (!cities[0].match('無停班停課訊息')) {
+    if (!cities[0].match('無停班停課訊息。')) {
         result = mergeArray(cities, status);
         resultHandler(result);
     } else {
-        console.log('無停班停課訊息');
+        console.log('No Information.');
     }
 
 };
