@@ -35,7 +35,7 @@ var parseHTML = function (rawHTMl) {
 
     var result = null;
 
-    if (!cities[0].match('無停班停課訊息。')) {
+    if (cities[0].match('無停班停課訊息。') === null) {
         result = mergeArray(cities, status);
         resultHandler(result);
     } else {
