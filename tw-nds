@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(readlink -f `which tw-nds`)
+if which tw-nds > /dev/null
+    then
+        BASEDIR=$(readlink -f `which tw-nds`)
+    else
+        BASEDIR="tw-nds"
+fi
 exec node $BASEDIR.js $1
