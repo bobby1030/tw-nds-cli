@@ -4,12 +4,12 @@ const cheerioTableParser = require('cheerio-tableparser');
 const replaceLocationToISO = require('./replaceLocationToISO');
 
 var fetchData = function () {
-    rq('http://www.dgpa.gov.tw/nds.html', function (err, res, body) {
+    rq.get({'url': 'http://www.dgpa.gov.tw/nds.html'}, function (err, res, body) {
         if (!err && res.statusCode === 200) {
             parseHTML(body);
         } else {
             console.error('Error when fetching data');
-            console.error(err);
+            console.error(err.code);
         }
     });
 };
