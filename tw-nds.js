@@ -19,6 +19,7 @@ var parseHTML = function (rawHTMl) {
     cheerioTableParser($);
 
     var data = $('table[bgcolor="#cdfad9"]').parsetable(false, false, true);
+    var lastUpdated = $('td > p > font[color="#000000"]').text();
 
     var cities = null;
     var status = null;
@@ -37,7 +38,7 @@ var parseHTML = function (rawHTMl) {
 
     if (cities[0].match('無停班停課訊息。') === null) {
         result = mergeArray(cities, status);
-        resultHandler(result);
+        resultHandler(result, lastUpdated);
     } else {
         console.log('No Information.');
     }
@@ -52,7 +53,7 @@ var mergeArray = function (column, data) {
     return obj;
 };
 
-var resultHandler = function (result) {
+var resultHandler = function (result, lastUpdatedTime) {
     var msg = result[process.argv[2]];
     if (msg) {
         if (msg.match('已達') || msg.match(/.*停止上班.*、/g) || msg.match(/、.*停止上課.*/g)) {
@@ -60,6 +61,7 @@ var resultHandler = function (result) {
             msg = '\033[01m\033[31m' + msg + '\033[0m';
         }
         console.log(msg);
+        console.log(lastUpdatedTime);
     } else if (process.argv[2]) {
         console.error('Please use a City Code that match ISO 3166-2:TW format.');
     } else {
