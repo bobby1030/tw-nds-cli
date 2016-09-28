@@ -19,7 +19,7 @@ var parseHTML = function (rawHTMl) {
     cheerioTableParser($);
 
     var data = $('table[bgcolor="#cdfad9"]').parsetable(false, false, true);
-    var lastUpdated = $('td > p > font[color="#000000"]').text();
+    var lastUpdated = $('td > p > font[color="#000000"]').first().text();
 
     var cities = null;
     var status = null;
