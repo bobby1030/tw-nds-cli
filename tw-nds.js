@@ -62,6 +62,9 @@ var resultHandler = function (result, lastUpdatedTime) {
         }
         console.log(msg);
         console.log(lastUpdatedTime);
+    } else if (result && process.argv[2]) {
+        console.error('No Information for specified city.');
+        console.log(lastUpdatedTime);
     } else if (process.argv[2]) {
         console.error('Please use a City Code that match ISO 3166-2:TW format.');
     } else {
