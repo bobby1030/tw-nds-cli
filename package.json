@@ -1,12 +1,13 @@
 {
   "name": "tw-nds-cli",
   "version": "1.0.0",
+  "repository": "github.com/bobby1030/tw-nds-cli",
   "description": "A cli interface for http://www.dgpa.gov.tw/nds.html",
-  "main": "app.js",
+  "main": "tw-nds",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Bobby Ho",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.22.0",
